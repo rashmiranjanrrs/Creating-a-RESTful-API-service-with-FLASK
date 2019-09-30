@@ -4,7 +4,6 @@ from app.models import User, Task
 from . import todo_api
 from flask_httpauth import HTTPBasicAuth
 import datetime
-from werkzeug.security import generate_password_hash, check_password_hash
 
 auth = HTTPBasicAuth()
 
@@ -21,7 +20,6 @@ def signup():
     data = request.get_json()
     username = data['username']
     password_check = data['password']
-    password = generate_password_hash(password_check)
     email = data['email']
     user = User(username, password, email)
     db.session.add(user)
