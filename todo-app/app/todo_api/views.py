@@ -19,7 +19,7 @@ def pass_auth(username):
 def signup():
     data = request.get_json()
     username = data['username']
-    password_check = data['password']
+    password = data['password']
     email = data['email']
     user = User(username, password, email)
     db.session.add(user)
